@@ -1,0 +1,18 @@
+// backend/controllers/fileController.js
+import File from '../models/File.js';
+
+export const uploadFile = async (req, res) => {
+  const { course, uploadedBy } = req.body;
+  try {
+    const newFile = new File({
+      filename: req.file.filename,
+      path: req.file.path,
+      course,
+      uploadedBy
+    });
+    await newFile.save();
+    res.status(201).send('File uploaded successfully');
+  } catch (error) {
+    res.status(500).json({ message: "Error uploading file.", error: error.message });
+  }
+};

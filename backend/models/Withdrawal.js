@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const withdrawalSchema = new Schema(
@@ -15,4 +15,4 @@ const withdrawalSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Withdrawal", withdrawalSchema);
+export default mongoose.model("Withdrawal", withdrawalSchema);

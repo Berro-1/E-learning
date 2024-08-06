@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
@@ -20,15 +20,18 @@ const courseSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "User",
-        default: 0,
       },
     ],
-
-    files: [{ type: Schema.Types.ObjectId, ref: "File" }],
+    files: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "File"
+      }
+    ],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model('Course',courseSchema);
+export default mongoose.model('Course', courseSchema);

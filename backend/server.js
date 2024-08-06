@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import fileRoutes from "./routes/fileRoutes.js";
 import withdrawalRoutes from "./routes/withdrawalRoutes.js";
+import enrollmentRoutes from "./routes/enrollmentRoutes.js";
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/files", fileRoutes);
 app.use("/api/withdrawals", withdrawalRoutes);
+app.use('/api/enrollments', enrollmentRoutes);
+
 const PORT = process.env.PORT || 5000;
 
 mongoose

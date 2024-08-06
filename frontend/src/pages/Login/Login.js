@@ -14,7 +14,7 @@ function Login() {
     try {
       const response = dispatch(loginUser({ email, password }));
       if (response) {
-        navigate("/dashboard");
+        navigate("/enroll");
       }
     } catch (err) {
       console.error("Login failed", err);

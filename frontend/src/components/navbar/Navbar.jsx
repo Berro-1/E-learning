@@ -1,20 +1,23 @@
-// src/components/Navbar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../../App.css'; // Assuming your styles are here
+import { Link, useNavigate } from 'react-router-dom';
 
-function Navbar() {
-    return (
-        <nav className="navbar">
-            <Link to="/" className="nav-logo">AppName</Link>
-            <div className="nav-links">
-                <Link to="/dashboard" className="nav-item">Dashboard</Link>
-                <Link to="/profile" className="nav-item">Profile</Link>
-                <Link to="/login" className="nav-item">Login</Link>
-                <Link to="/signup" className="nav-item">Signup</Link>
-            </div>
-        </nav>
-    );
-}
+const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+  };
+
+  return (
+    <nav className="navbar">
+      <Link to="/" className="nav-logo">E-learn</Link>
+      <div className="nav-links">
+        <Link to="/dashboard" className="nav-item">Dashboard</Link>
+        <button onClick={handleLogout} className="nav-item logout-button">Logout</button>
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;

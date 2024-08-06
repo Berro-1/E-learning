@@ -3,6 +3,8 @@ import Withdrawal from '../models/Withdrawal.js';
 
 export const requestWithdrawal = async (req, res) => {
   const { student, course, reason } = req.body;
+  console.log(req.body);
+  
   try {
     const newWithdrawal = new Withdrawal({ student, course, reason, status: 'pending' });
     await newWithdrawal.save();

@@ -153,3 +153,52 @@ p {
   margin-top: 40px;
   width: 100%;
 }
+.modal {
+  background: #333;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  background-color: #222;
+  color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #ffd700;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #cca700;
+}

@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import AddClass from './components/addClass';
-import EnrolledStudents from './components/EnrolledStudents';
+import CourseEnrollment from './components/CourseEnrollment';
+import ManageWithdrawals from "./components/manageWithdrawals";
 import './App.css';
 
 const App = () => {
@@ -16,7 +17,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/add-class" element={<AddClass />} />
-          <Route path="/enrolled-students" element={<EnrolledStudents />} />
+          <Route path="/enrolled-students" element={<CourseEnrollment />} />
+          <Route path="/withdrawals" element={<ManageWithdrawals />} />
         </Routes>
       </div>
     </Router>

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+
 const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
@@ -13,21 +14,16 @@ const courseSchema = new Schema(
     },
     instructor: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
     enrolledStudents: [
       {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
       },
     ],
-    files: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "File"
-      }
-    ],
+    files: [{ type: Schema.Types.ObjectId, ref: 'File' }],
   },
   {
     timestamps: true,

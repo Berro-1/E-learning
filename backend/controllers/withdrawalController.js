@@ -1,10 +1,7 @@
-// backend/controllers/withdrawalController.js
 import Withdrawal from '../models/Withdrawal.js';
 
 export const requestWithdrawal = async (req, res) => {
   const { student, course, reason } = req.body;
-  console.log(req.body);
-  
   try {
     const newWithdrawal = new Withdrawal({ student, course, reason, status: 'pending' });
     await newWithdrawal.save();
@@ -31,7 +28,7 @@ export const handleWithdrawal = async (req, res) => {
 
 export const getWithdrawals = async (req, res) => {
   try {
-    const withdrawals = await Withdrawal.find();
+    const withdrawals = await Withdrawal.find().populate('student course');
     res.status(200).json(withdrawals);
   } catch (error) {
     res.status(500).json({ message: "Error retrieving withdrawals.", error: error.message });

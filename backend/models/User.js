@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import validator from 'validator';
+import mongoose from "mongoose";
+import validator from "validator";
 
 const Schema = mongoose.Schema;
 
@@ -26,11 +26,11 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      enum: ["student", "admin"],
+      enum: ["student", "admin", "instructor"],
       default: "student",
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);

@@ -18,6 +18,9 @@ const Sidebar = () => {
           <li>
             <Link to="/enrolled-students">Enrolled Students</Link>
           </li>
+          <li>
+            <Link to="/withdrawals">Withdrawals</Link>
+          </li>
         </ul>
       </nav>
     </div>

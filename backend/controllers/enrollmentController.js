@@ -1,6 +1,16 @@
 import mongoose from 'mongoose';
 import Enrollment from '../models/Enrollment.js';
+import Course from '../models/Course.js';
 
+export const getEnrolledStudentsByCourse = async (req, res) => {
+  const { courseId } = req.params;
+  try {
+    const enrollments = await Enrollment.find({ classId: courseId }).populate('userId', 'username');
+    res.status(200).json(enrollments);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving enrolled students.', error: error.message });
+  }
+};
 
 export const enrollInClass = async (req, res) => {
   const { userId, classId } = req.body;
@@ -12,11 +22,18 @@ export const enrollInClass = async (req, res) => {
 
     const newEnrollment = new Enrollment({ userId, classId });
     await newEnrollment.save();
+
+    // Update the Course document to add the new enrollment to the enrolledStudents array
+    await Course.findByIdAndUpdate(classId, {
+      $push: { enrolledStudents: newEnrollment._id }
+    });
+
     res.status(201).json(newEnrollment);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 export const getUserEnrollments = async (req, res) => {
   const { userId } = req.params; 

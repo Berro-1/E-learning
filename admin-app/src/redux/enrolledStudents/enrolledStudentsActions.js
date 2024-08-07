@@ -5,12 +5,14 @@ import {
   fetchEnrolledStudentsStart,
   fetchEnrolledStudentsSuccess,
   fetchEnrolledStudentsFailure,
+
 } from './enrolledStudentsSlice';
 
-export const fetchEnrolledStudents = (classId) => async (dispatch) => {
+
+export const fetchEnrolledStudents = (courseId) => async (dispatch) => {
   dispatch(fetchEnrolledStudentsStart());
   try {
-    const response = await axios.get(`http://localhost:4000/api/courses/${classId}/students`);
+    const response = await axios.get(`http://localhost:4000/api/enrollments/course/${courseId}`);
     dispatch(fetchEnrolledStudentsSuccess(response.data));
   } catch (error) {
     dispatch(fetchEnrolledStudentsFailure(error.message));

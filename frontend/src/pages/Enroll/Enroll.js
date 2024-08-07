@@ -68,9 +68,9 @@ const Enroll = () => {
       {enrollmentError && <p>Error: {enrollmentError}</p>}
       <div className="classes-grid">
         {enrolledClasses && enrolledClasses.map((classItem) => (
+          
           <div key={classItem._id} className="class-card">
-            <h3>{classItem.classId.title}</h3>
-            <p>{classItem.classId.description}</p>
+            <h3>{classItem.classId?.title}</h3>
             <button onClick={() => { setSelectedClass(classItem.classId); setIsModalOpen(true); }}>
               Withdraw
             </button>
